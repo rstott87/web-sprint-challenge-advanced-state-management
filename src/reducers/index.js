@@ -1,11 +1,14 @@
+import { FETCH_SMURF_START, FETCH_SMURF_SUCCES, FETCH_SMURF_FAILURE } from "../actions"
+
 
 export const initialState = {
-    smurfs: [],
+    smurfs: [{}],
     isLoading: true,
     error: " "
 }
 
 const reducer = (state=initialState, action)=>{
+    // eslint-disable-next-line default-case
     switch(action.type) {
         case FETCH_SMURF_START:
             return {
@@ -14,9 +17,9 @@ const reducer = (state=initialState, action)=>{
                 isLoading: true,
             }
         case FETCH_SMURF_SUCCES:
+            console.log("hello")
             return {
-                ...state,
-                smurfs: [action.payload],
+                smurfs: action.payload,
                 isLoading: false,
                 error: '',
             }
@@ -24,9 +27,9 @@ const reducer = (state=initialState, action)=>{
             return {
                 ...state,
                 isLoading: true,
-                error: 'IT DID NOT LOAD';
+                error: `${action.payload}`,
             }
-
+    }
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
