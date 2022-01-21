@@ -6,7 +6,27 @@ export const initialState = {
 }
 
 const reducer = (state=initialState, action)=>{
-    
+    switch(action.type) {
+        case FETCH_SMURF_START:
+            return {
+                ...state,
+                error: '',
+                isLoading: true,
+            }
+        case FETCH_SMURF_SUCCES:
+            return {
+                ...state,
+                smurfs: [action.payload],
+                isLoading: false,
+                error: '',
+            }
+        case FETCH_SMURF_FAILURE:
+            return {
+                ...state,
+                isLoading: true,
+                error: 'IT DID NOT LOAD';
+            }
+
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//
