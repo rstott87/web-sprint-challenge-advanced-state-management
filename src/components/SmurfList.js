@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
  const SmurfList = (props)=> {
 const smurfArray = (props.smurfs)
-// console.log(Array.isArray(smurfArray));
+
 
  
     const isLoading = props.isLoading;
@@ -36,7 +36,6 @@ const smurfArray = (props.smurfs)
         )   
         return (<div className="listContainer">
             <ul>{mappedSmurfs}</ul>
-                    {/* <Smurf smurf={testSmurf}/> */}
             </div>);
         }
     else {
@@ -46,12 +45,7 @@ const smurfArray = (props.smurfs)
         </div>);
     }
         
-    
 
-    // return(<div className="listContainer">
-    //     {/* <ul>{mappedSmurfs}</ul> */}
-    //     {/* <Smurf smurf={testSmurf}/> */}
-    // </div>);
 }
 
 const mapStateToProps = (state) => {

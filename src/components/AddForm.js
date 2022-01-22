@@ -17,9 +17,7 @@ const AddForm = (props) => {
         description:""
     });
 
-    // const [smurfStuff, dispatch] = useReducer(reducer, state);
 
-    //remove when error state is added
 
 
     const handleChange = e => {
@@ -41,7 +39,6 @@ const AddForm = (props) => {
             nickname:"",
             description:""
         });
-        //props.addSmurf([state])
         }
     }
     console.log(props)

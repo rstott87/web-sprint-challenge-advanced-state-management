@@ -15,8 +15,8 @@ You are not allowed to collaborate during the sprint challenge.
 In this challenge, you will build a Smurfs village database utilizing Redux as your state management system. Build this challenge from the ground up using what you have learned about state management.
 
 ## Project Setup
-* [ ] Run npm install to install your dependencies.
-* [ ] Run npm start to run your frontend and backend code automatically.
+* [X] Run npm install to install your dependencies.
+* [X] Run npm start to run your frontend and backend code automatically.
 * [ ] Note your backend code will run automatically when your run npm start. There is no need to separately run a server.js file and no means to test the server through postman or the browser. Feel free to ignore any messages related to MSW or mock service workers.
 
 ## Project Instructions
@@ -112,9 +112,15 @@ In this project, you will build the reducer, actions and basic redux connects to
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers below.
 
 1. What problem does the context API help solve?
+  It's to give components access to global state more simply than prop drilling. It can also be somewhat simpler than
+  Redux. 
 
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+Actions are objects that contain a type (which correspond to instructions) and payload (which is the actual data its carrying). It bring that data to a reducer which will execute the instruction and change the state in the store if neccessary. 
 
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
+Redux thunk is a function that allows us to intercept the data in the action creator, before it gets to the reducer to allow us to do other things such as call an API and add that data into the action object.
 
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
+The general Redux store architecture seems like the simplest to wrap my head around. Context API seems to require less code and may be the simpler option but
+for some reason I was able to visualize the structure less. 

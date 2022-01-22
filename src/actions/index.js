@@ -17,7 +17,7 @@ export const fetchSmurfs = () => dispatch => {
 
 }
 
-export const addSmurf = (smurf) => {
+export const addSmurf = (smurf) => {    //can add Smurf to Application without API Post.
     return {type: ADD_SMURF, payload: smurf}
 }
 
