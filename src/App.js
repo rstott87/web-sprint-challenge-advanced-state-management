@@ -27,7 +27,7 @@ const App = (props)=> {
       <Header />
 
       <main>
-        <SmurfList props={props}/>
+        <SmurfList />
         <AddForm props={props}/>
       </main>
     </div>
