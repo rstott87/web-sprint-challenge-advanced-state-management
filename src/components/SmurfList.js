@@ -29,7 +29,7 @@ import { connect } from 'react-redux';
 //          value={smurf} />
 //   );
 
- console.log(typeof props.smurfs);
+
 
     if (isLoading) {
         return <h1>Loading...</h1>;
@@ -41,10 +41,11 @@ import { connect } from 'react-redux';
 }
 
 const mapStateToProps = (state) => {
+    console.log("in smurflist")
+    console.log(state.smurfs.map((e)=>e));
+
     return {
-        smurfs: [{
-            
-        }]
+        ...state,
     }
 }
 

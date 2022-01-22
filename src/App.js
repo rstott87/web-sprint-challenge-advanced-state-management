@@ -13,6 +13,7 @@ import "./App.css";
 
 
 const mapStateToProps=(state)=>{
+  console.log("in app")
   console.log(state);
   return {
       ...state,
