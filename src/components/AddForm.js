@@ -30,7 +30,7 @@ const AddForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        
+        console.log("handle submit")
         if (state.name === "" || state.position === "" || state.nickname === "") {
            
         } else {

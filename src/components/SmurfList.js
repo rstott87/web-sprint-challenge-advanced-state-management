@@ -8,6 +8,9 @@ import { connect } from 'react-redux';
 
 
  const SmurfList = (props)=> {
+const smurfArray = (props.smurfs)
+// console.log(Array.isArray(smurfArray));
+
  
     const isLoading = props.isLoading;
     const testSmurf = {
@@ -18,31 +21,41 @@ import { connect } from 'react-redux';
         description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
     }
     
-    // ATTEMPTING TO DEBUG WHY OBJECT WONT MAP!!!!
-    // const smurfs = props.props.smurfs;
-    // console.log(typeof smurfs)
-    // console.log(smurfs)
-    //console.log(Object.keys(smurfs))
-    
-//     const listSmurfs = Object.keys(smurfs).map((smurf, index) =>
-//     <Smurf key={index}
-//          value={smurf} />
-//   );
 
 
+    //coditionally rendering block of code -
+    // Necessary due to asynchronous nature of fetching data from API
 
     if (isLoading) {
         return <h1>Loading...</h1>;
-    }
+    } 
+    else if (smurfArray)  {
+        const mappedSmurfs=smurfArray[0].map(((smurf)=>
+                <Smurf key={smurf.name} smurf={smurf} />
+            )
+        )   
+        return (<div className="listContainer">
+            <ul>{mappedSmurfs}</ul>
+                    {/* <Smurf smurf={testSmurf}/> */}
+            </div>);
+        }
+    else {
+        return(<div className="listContainer">
 
-    return(<div className="listContainer">
-        <Smurf smurf={testSmurf}/>
-    </div>);
+            <Smurf smurf={testSmurf}/>
+        </div>);
+    }
+        
+    
+
+    // return(<div className="listContainer">
+    //     {/* <ul>{mappedSmurfs}</ul> */}
+    //     {/* <Smurf smurf={testSmurf}/> */}
+    // </div>);
 }
 
 const mapStateToProps = (state) => {
-    console.log("in smurflist")
-    console.log(state.smurfs.map((e)=>e));
+   // console.log(state.smurfs.map((e)=>e));
 
     return {
         ...state,
