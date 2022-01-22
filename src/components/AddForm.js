@@ -30,14 +30,13 @@ const AddForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log("handle submit")
         if (state.name === "" || state.position === "" || state.nickname === "") {
-           
+        props.setError("FILL OUT THE FORM!!");
         } else {
           
         }
     }
-
+    
     return(<section>
         <h2>Add Smurf</h2>
         <form onSubmit={handleSubmit}>
@@ -58,7 +57,7 @@ const AddForm = (props) => {
                 <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
-                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {errorMessage}</div>
+                props.error && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {props.error}</div>
             }
             <button>Submit Smurf</button>
         </form>
@@ -67,13 +66,11 @@ const AddForm = (props) => {
 
 const mapStateToProps=(state)=>{
     return {
-      smurfs: [],
-      isLoading: true,
-      error: " "
+        ...state,
     }
   };
 
-export default connect (mapStateToProps, {addSmurf, setError})(AddForm);
+export default connect (mapStateToProps,  {addSmurf, setError} )(AddForm);
 
 //Task List:
 //1. Connect the errorMessage, setError and addSmurf actions to the AddForm component.
