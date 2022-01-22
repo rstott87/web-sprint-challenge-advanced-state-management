@@ -30,7 +30,7 @@ const smurfArray = (props.smurfs)
         return <h1>Loading...</h1>;
     } 
     else if (smurfArray)  {
-        const mappedSmurfs=smurfArray[0].map(((smurf)=>
+        const mappedSmurfs=smurfArray.map(((smurf)=>
                 <Smurf key={smurf.name} smurf={smurf} />
             )
         )   
@@ -55,7 +55,7 @@ const smurfArray = (props.smurfs)
 }
 
 const mapStateToProps = (state) => {
-   // console.log(state.smurfs.map((e)=>e));
+   // og(state.smurfs.map((e)=>e));
 
     return {
         ...state,

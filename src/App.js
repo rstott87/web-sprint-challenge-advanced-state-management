@@ -13,8 +13,7 @@ import "./App.css";
 
 
 const mapStateToProps=(state)=>{
-  console.log("in app")
-  console.log(state);
+
   return {
       ...state,
       
@@ -29,7 +28,7 @@ const App = (props)=> {
 
       <main>
         <SmurfList />
-        <AddForm props={props}/>
+        <AddForm />
       </main>
     </div>
   );

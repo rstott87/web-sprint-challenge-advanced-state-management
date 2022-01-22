@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { addSmurf, setError} from '../actions';
 // import { addSmurf, addError } from '../actions';
 import { connect } from 'react-redux';
+import SmurfList from './SmurfList';
 // import { useReducer } from 'react';
 // import reducer, { initialState } from '../reducers'
 // import mapStateToProps from 'react-redux/lib/connect/mapStateToProps';
@@ -19,7 +20,7 @@ const AddForm = (props) => {
     // const [smurfStuff, dispatch] = useReducer(reducer, state);
 
     //remove when error state is added
-    const errorMessage = "";
+
 
     const handleChange = e => {
         setState({
@@ -33,10 +34,17 @@ const AddForm = (props) => {
         if (state.name === "" || state.position === "" || state.nickname === "") {
         props.setError("FILL OUT THE FORM!!");
         } else {
-          
+        props.addSmurf(state)
+        setState({
+            name:"",
+            position:"",
+            nickname:"",
+            description:""
+        });
+        //props.addSmurf([state])
         }
     }
-    
+    console.log(props)
     return(<section>
         <h2>Add Smurf</h2>
         <form onSubmit={handleSubmit}>
@@ -65,6 +73,7 @@ const AddForm = (props) => {
 }
 
 const mapStateToProps=(state)=>{
+    console.log(state)
     return {
         ...state,
     }
